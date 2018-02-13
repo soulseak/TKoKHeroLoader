@@ -1,8 +1,6 @@
 TKoK Hero Loader
 
-With AutoHotkey version
-
-
+Running Script allows by pressing F8 to load your Characters fast while staying ingame. 
 AutoHotkey
-ToDo:
-- Fix Loading Code
+ToDo
+ - Loading Account Code Only for new Chars
