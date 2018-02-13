@@ -99,53 +99,49 @@ ExecuteInput(dir, tkokdir)
 	WinMinimize, Warcraft III
 	WinWaitNotActive, Warcraft III, , 10
 	HeroCode := GetLatestCode(dir)
-	StringTrimLeft, HeroCode, HeroCode, 17
+	StringTrimLeft, HeroCode, HeroCode, 23
 	StringTrimRight, HeroCode, HeroCode, 3
+	
 	L2code	:= GetLatestCodel2(dir)
-	StringTrimLeft, L2code, L2code, 17
+	StringTrimLeft, L2code, L2code, 23
 	StringTrimRight, L2code, L2code, 3
-	AccountCode:=GetLatestCode(tkokdir)
+	
+	AccountCode := GetLatestCode(tkokdir)
 	ClipSaved := ClipboardAll
 	Clipboard =
 	Clipboard = %HeroCode%
 	ClipWait, 10
+
 	WinActivate, Warcraft III
 	WinWaitActive, Warcraft III, , 10
+	
+	Sleep, 250
+	
 	IfWinActive, Warcraft III
 	{
 		Send, {Enter}^v{Enter}
 	}
-	Sleep, 250
+	Sleep, 1000
 
-	WinMinimize, Warcraft III
-	WinWaitNotActive, Warcraft III, , 10
 	Clipboard =
 	Clipboard = %L2code%
 	ClipWait, 10
-	WinActivate, Warcraft III
-	WinWaitActive, Warcraft III, , 10
+
 	IfWinActive, Warcraft III
 	{
 		Send, {Enter}^v{Enter}
 	}
-	Sleep, 250
+	Sleep, 1000
 
-
-
-
-
-	WinMinimize, Warcraft III
-	WinWaitNotActive, Warcraft III, , 10
 	Clipboard =
 	Clipboard = %AccountCode%
 	ClipWait, 10
-	WinActivate, Warcraft III
-	WinWaitActive, Warcraft III, , 10
+
 	IfWinActive, Warcraft III
 	{
 		Send, {Enter}^v{Enter}
 	}
-	Sleep, 250
+	Sleep, 1000
 	Clipboard := ClipSaved
 	ClipSaved =
 }
