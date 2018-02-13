@@ -58,6 +58,8 @@ GetLatestCode(dir)
 			FileReadLine, LoadCode, %FileItem2%, i
 			IfInString, LoadCode, -l
 			{
+				RegExMatch(LoadCode, "(-l[^""]*)" , LoadCode)
+				
 				return LoadCode
 			}
 			i++
@@ -84,6 +86,8 @@ GetLatestCodel2(dir)
 			FileReadLine, LoadCode, %FileItem2%, i
 			IfInString, LoadCode, -l2
 			{
+				
+				RegExMatch(LoadCode, "(-l[^""]*)" , LoadCode)
 				return LoadCode
 			}
 			i++
@@ -96,17 +100,11 @@ return
 ExecuteInput(dir, tkokdir)
 {
 	Gui, Destroy
-	WinMinimize, Warcraft III
-	WinWaitNotActive, Warcraft III, , 10
+
 	HeroCode := GetLatestCode(dir)
-	StringTrimLeft, HeroCode, HeroCode, 23
-	StringTrimRight, HeroCode, HeroCode, 3
-	
 	L2code	:= GetLatestCodel2(dir)
-	StringTrimLeft, L2code, L2code, 23
-	StringTrimRight, L2code, L2code, 3
-	
 	AccountCode := GetLatestCode(tkokdir)
+
 	ClipSaved := ClipboardAll
 	Clipboard =
 	Clipboard = %HeroCode%
